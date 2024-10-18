@@ -10,6 +10,9 @@ import Users from '../pages/Users';
 import UserDetails from '../pages/UserDetails';
 import Header from '../components/Header';
 import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
+import Settings from '../pages/Settings';
 
 export default function AppRouter() {
   const loginSession = localStorage.getItem('session');
@@ -25,6 +28,10 @@ export default function AppRouter() {
         ) : (
           <Routes>
             <Route path="/" Component={Home} />
+            <Route path="/dashboard" Component={Dashboard}>
+              <Route path="profile" Component={Profile} />
+              <Route path="settings" Component={Settings} />
+            </Route>
             <Route path="/users" Component={Users} />
             <Route path="/users/:id" Component={UserDetails} />
           </Routes>
